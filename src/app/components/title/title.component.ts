@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { HelloService } from 'src/app/hello.service';
+
 
 @Component({
   selector: 'app-title',
@@ -7,24 +7,15 @@ import { HelloService } from 'src/app/hello.service';
   styleUrls: ['./title.component.scss']
 })
 export class TitleComponent {
-  public text: string = "";
-  public constructor(private helloService: HelloService ) {
-        this.helloService.myMethod$.subscribe((data:string) => {
-          this.text = data;
-                console.log(data) // И тут тоже мы можем пользоваться нашими данными!
-            }
-        );
+ text: string = "Доброго дня, незнайомець. Давай знайомитись?";
+  
+ addItem(newItem: string) {
+   
+   if (newItem == "") {
+     this.text = "Нажаль, я не почув тебе";
     }
+    else  this.text = "Привіт, " +newItem+"! Радий познайомитись";
+  }
   
 }
 
-// export class SomeComponent2 {
-//     public text: Array<any> = MyData;
-
-//     public constructor(private helloService: HelloService) {
-//         this.helloService.myMethod$.subscribe((text) => {
-//                 this.text = text; // И тут тоже мы можем пользоваться нашими данными!
-//             }
-//         );
-//     }
-// }

@@ -1,5 +1,5 @@
-import { Component, Output } from '@angular/core';
-import { HelloService } from 'src/app/hello.service';
+import { Component, Output, EventEmitter } from '@angular/core';
+
 
 
 @Component({
@@ -8,35 +8,13 @@ import { HelloService } from 'src/app/hello.service';
   styleUrls: ['./input-btn.component.scss']
 })
 export class InputBtnComponent {
-  name: string = "";
-   text: string = "";
-   public data: string = "";
-
-
-  addName(inpName: string) {
-    this.name = inpName;
-    if (inpName == "") {
-     this.text = "Нажаль, я не почув тебе";
-    }
-    else  this.text = "Привіт," +this.name+"! Радий познайомитись";
-    
-    console.log(inpName);
-    this.data = this.text;
-    console.log(this.data);
-    return this.data;
-  }
- 
+@Output()   name= new EventEmitter<string>();
   
-   constructor(private helloService: HelloService ) {
-  this.helloService.myMethod(this.data);
-  console.log(this.data);
-    }
-}
+  data: string = "";
+  
+addNewItem(value: string) {
+    this.name.emit(value);
+  }
 
-// export class SomeComponent {
-//     public text: Array<any> = MyData;
+ }
 
-//     public constructor(private HelloService: HelloService) {
-//         this.HelloService.myMethod(this.text);
-//     }
-// }

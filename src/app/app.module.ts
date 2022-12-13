@@ -9,7 +9,7 @@ import { InputBtnComponent } from './components/input-btn/input-btn.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import { HelloService } from './hello.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,9 +25,10 @@ import { HelloService } from './hello.service';
     AppRoutingModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
   ],
-  providers: [ HelloService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

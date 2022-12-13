@@ -1,11 +1,12 @@
-<div>
-  <mat-form-field class="example-full-width">
-    <input matInput #inpName placeholder="name" />
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="addName(inpName.value)">
+<!doctype html>
+<div class="container">
+ 
+    <input type="text" placeholder="Напишіть ім'я"#newItem />
+    
+  <button mat-raised-button color="primary" (click)="addNewItem(newItem.value)">
     Познайомитись
   </button>
 </div>
-<p > {{text}}</p>
+
 
 
